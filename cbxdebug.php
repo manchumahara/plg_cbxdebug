@@ -82,3 +82,20 @@ class PlgSystemCBXDebug extends JPlugin
 	}//end method init_log
 
 }//end class PlgSystemCBXDebug
+
+
+if ( ! function_exists( 'write_log' ) ) {
+	/**
+	 * Write log to log file
+	 *
+	 * @param string|array|object $log
+	 */
+	function write_log( $log ) {		
+		if ( is_array( $log ) || is_object( $log ) ) {
+			error_log( print_r( $log, true ) );
+		} else {
+			error_log( $log );
+		}
+		
+	}
+}
